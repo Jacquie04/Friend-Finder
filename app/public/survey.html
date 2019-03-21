@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>FriendFinder</title>
   <link rel="stylesheet" href="./assets/reset.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -21,7 +21,9 @@
     <h2>Survey Questions</h2>
     <hr>
     <div>
-    <a href="/home"><button type="button" class="btn btn-lg btn-primary"><h4> Go Home</h4></button></a>
+      <a href="/home"><button type="button" class="btn btn-lg btn-primary">
+          <h4> Go Home</h4>
+        </button></a>
     </div>
     <hr>
 
@@ -152,8 +154,8 @@
     <br>
     <br>
 
-    <button type="submit" class="btn btn-primary btn-md" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i>
-     Submit</button>
+    <button type="submit" class="btn btn-primary btn-md" id="submit"><i class="fa fa-check-circle"
+        aria-hidden="true"></i>Submit</button>
 
     <hr>
 
@@ -162,10 +164,10 @@
   <div id="results-modal" role="dialog">
     <div class="modal-dialog">
 
-  
+
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="close" data-dismiss="modal"></button>
           <h2 class="modal-title">Who You've Matched!</h2>
         </div>
         <div class="modal-body">
@@ -181,20 +183,20 @@
   </div>
 
   <script type="text/javascript">
- 
-    $("#submit").on("click", function(event) {
+
+    $("#submit").on("click", function (event) {
       event.preventDefault();
 
-   
+
       function validateForm() {
         var isValid = true;
-        $(".form-control").each(function() {
+        $(".form-control").each(function () {
           if ($(this).val() === "") {
             isValid = false;
           }
         });
 
-        $(".chosen-select").each(function() {
+        $(".chosen-select").each(function () {
 
           if ($(this).val() === "") {
             isValid = false;
@@ -203,10 +205,10 @@
         return isValid;
       }
 
-     
+
       if (validateForm()) {
 
-        var userData = {
+        var friendData = {
           name: $("#name").val(),
           photo: $("#photo").val(),
           scores: [
@@ -223,10 +225,10 @@
           ]
         };
 
-       
-        $.post("/api/friends", userData, function(data) {
 
-        
+        $.post("/api/friends", friendData, function (data) {
+
+
           $("#match-name").text(data.name);
           $("#match-img").attr("src", data.photo);
 
@@ -237,9 +239,13 @@
         alert("Please fill out all fields before submitting!");
       }
     });
+
+
+    
+
   </script>
 
-  
+
 </body>
 
 </html>
