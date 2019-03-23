@@ -51,7 +51,7 @@ module.exports = function (app) {
 
     res.json(friendMatch);
 
-    friendData.push(newFriend);
+    friendArray.push(newFriend);
   });
 };
 
